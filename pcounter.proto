@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package pcounter;
+
+option go_package="github.com/synerex/proto_pcounter";
+
+
+import "google/protobuf/timestamp.proto";
+//import "google/protobuf/duration.proto";
+
+// People Counter Service message
+message PCounter
+{   string device_id = 1;
+    string hostname = 2;
+    string location = 3;
+    string timezone = 4;
+    string mac = 5;
+    string hardware = 6;
+    string protocol = 7;
+    google.protobuf.Timestamp ts= 8;
+    repeated PEvent data = 9;   // message has several event data.
+    repeated PArea areas = 10;
+}
+
+message PEvent 
+{
+    string typ = 1;  // one of "counter, fill, dwell"
+    string id = 2;
+    uint32 seq = 3;   // sequence number (onr)
+    uint32 height = 4;
+    string dir = 5; // direction
+    google.protobuf.Timestamp ts= 6;
+    string fillLevel = 7;
+    string dwellTime = 8;
+    string expDwellTime = 9;
+}
+
+message PArea
+{
+    string type = 1;
+    string id = 2;
+    string label = 3;
+    repeated float nodes = 4;
+}
+

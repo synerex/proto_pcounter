@@ -1,2 +1,2 @@
 # proto_pcounter
-Protocol for People Counter
+Protocol Buffer for People Counter
