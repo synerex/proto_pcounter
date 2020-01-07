@@ -17,8 +17,10 @@ message PCounter
     string mac = 5;
     string hardware = 6;
     string protocol = 7;
-    google.protobuf.Timestamp ts= 8;
-    repeated PEvent data = 9;   // message has several event data.
+    string ip = 8;
+    string ip_vpn = 9;
+    google.protobuf.Timestamp ts= 10;
+    repeated PEvent data = 11;   // message has several event data.
 }
 
 message PEvent 
