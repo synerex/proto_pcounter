@@ -6,7 +6,7 @@ option go_package="github.com/synerex/proto_pcounter";
 
 
 import "google/protobuf/timestamp.proto";
-//import "google/protobuf/duration.proto";
+import "google/protobuf/duration.proto";
 
 // People Counter Service message
 message PCounter
@@ -36,4 +36,16 @@ message PEvent
     float dwellTime = 9;
     float expDwellTime = 10;
     uint32 object_id = 11;
+}
+
+message PCounters
+{
+    repeated PCounter pcs = 1; // multiple counter data for first transfer
+}
+
+message Retrieve
+{
+    google.protobuf.Timestamp from = 1;
+    google.protobuf.Duration duration = 2;
+    PCounters result = 3;
 }
