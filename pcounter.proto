@@ -40,12 +40,36 @@ message PEvent
 
 message PCounters
 {
-    repeated PCounter pcs = 1; // multiple counter data for first transfer
+    repeated PCounter pcs = 1; // multiple counter data for fast transfer
 }
 
+// Area counter 
+message ACounter
+{
+    google.protobuf.Timestamp ts = 1;
+    string areaName = 2;
+    uint32 areaId = 3;
+    int32  count = 4;                       // current people number (reset required)
+}
+
+message ACounters
+{
+    repeated ACounter pcs = 1; // multiple counter data for fast transfer
+    uint32 intervalSec = 2; //   0 = raw, other = seconds of interval
+}
+
+
+// retrieve message
 message Retrieve
 {
     google.protobuf.Timestamp from = 1;
     google.protobuf.Duration duration = 2;
-    PCounters result = 3;
+    string query = 3;
+    oneof result {
+        PCounters pc_res = 4;
+        ACounters ac_res = 5;
+    }
 }
+
+
+
