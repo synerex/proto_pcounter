@@ -54,7 +54,7 @@ message ACounter
 
 message ACounters
 {
-    repeated ACounter pcs = 1; // multiple counter data for fast transfer
+    repeated ACounter acs = 1; // multiple counter data for fast transfer
     uint32 intervalSec = 2; //   0 = raw, other = seconds of interval
 }
 
