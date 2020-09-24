@@ -71,5 +71,8 @@ message Retrieve
     }
 }
 
-
+message PFlow {
+    PCounter pc_from = 1;
+    PCounter pc_to = 2;
+}
 
