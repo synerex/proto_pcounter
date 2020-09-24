@@ -72,7 +72,8 @@ message Retrieve
 }
 
 message PFlow {
-    PCounter pc_from = 1;
-    PCounter pc_to = 2;
+    PEvent pc_from = 1;
+    PEvent pc_to = 2;
+    string areaName = 3;
 }
 
