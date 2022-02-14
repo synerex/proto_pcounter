@@ -28,7 +28,7 @@ message PEvent
     string typ = 1;  // one of "counter, fillLevel, dwellTime"
     string id = 2;
     uint32 seq = 3;   // sequence number (onr)
-    uint32 height = 4;
+    float height = 4;
     string dir = 5; // direction
     google.protobuf.Timestamp ts= 6;
     google.protobuf.Timestamp ts_exit = 7;
@@ -36,6 +36,7 @@ message PEvent
     float dwellTime = 9;
     float expDwellTime = 10;
     uint32 object_id = 11;
+    float walk_speed = 12;
 }
 
 message PCounters
