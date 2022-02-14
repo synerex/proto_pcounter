@@ -19,23 +19,34 @@ message PCounter
     string protocol = 7;
     string ip = 8;
     string ip_vpn = 9;
-    google.protobuf.Timestamp ts= 10;
+    google.protobuf.Timestamp ts = 10;
     repeated PEvent data = 11;   // message has several event data.
 }
 
 message PEvent 
 {
-    string typ = 1;  // one of "counter, fillLevel, dwellTime"
+    string typ = 1;  // one of "counter, fillLevel, dwellTime, tracking"
     string id = 2;
     uint32 seq = 3;   // sequence number (onr)
-    uint32 height = 4;
+    float height = 4;
     string dir = 5; // direction
-    google.protobuf.Timestamp ts= 6;
+    google.protobuf.Timestamp ts = 6;
     google.protobuf.Timestamp ts_exit = 7;
     uint32 fillLevel = 8;
     float dwellTime = 9;
     float expDwellTime = 10;
     uint32 object_id = 11;
+    float walk_speed = 12;
+    bool isFinished = 13;
+    repeated PDetections detections = 14;
+}
+
+message PDetections
+{
+    int32 x = 1;
+    int32 y = 2;
+    uint32 height = 3;
+    google.protobuf.Timestamp ts = 4;
 }
 
 message PCounters
